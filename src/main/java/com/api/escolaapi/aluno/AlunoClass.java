@@ -49,7 +49,7 @@ public class AlunoClass {
     private CursoEnum curso;
     // Booleanos
     private boolean ativo;
-
+    // Condições para atualizar informações
     public void atualizarInformacoes(@Valid AlunoDTOAtualizar dados){
         if (dados.serie() != null){
             this.serie = dados.serie();
@@ -59,11 +59,11 @@ public class AlunoClass {
             this.email = dados.email();
         }
     }
-
+    // Desativar aluno
     public void desativar() {
         this.ativo = false;
     }
-
+    // Ativar aluno
     public void ativar(){
         this.ativo = true;
     }
