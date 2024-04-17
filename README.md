@@ -19,7 +19,7 @@ This is an API that uses Java and Spring Boot Framework. You can use this projec
 ## You can integrate
 
 - The Front-end
-- More Entities, like: Teachers, Employees, Parents..
+- More Entities, like: Employees, Parents..
 - More security
 
 
