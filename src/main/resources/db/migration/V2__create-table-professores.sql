@@ -1,5 +1,5 @@
 CREATE TABLE professores(
-    aluno_id INT AUTO_INCREMENT PRIMARY KEY,
+    professor_id INT AUTO_INCREMENT PRIMARY KEY,
     primeiro_nome VARCHAR(100) NOT NULL,
     sobrenome VARCHAR(100) NOT NULL,
     sexo INT NOT NULL,
