@@ -6,7 +6,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-
+@Table(name = "Professores")
+@Entity(name = "professores")
 @Getter
 @Setter
 @AllArgsConstructor

@@ -12,7 +12,7 @@ import java.time.LocalDate;
 
 // Anotações da classe Aluno
 // Essas anotações veem da dependência JPA
-@Table(name = "Aluno")
+@Table(name = "Alunos")
 @Entity(name = "alunos")
 @Getter
 @Setter
