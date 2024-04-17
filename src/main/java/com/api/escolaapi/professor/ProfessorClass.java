@@ -5,6 +5,8 @@ import com.api.escolaapi.professor.DTOs.ProfessorDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -32,10 +34,14 @@ public class ProfessorClass {
     private String primeiro_nome, sobrenome, email, telefone;
     // Ints
     private int sexo;
+    // Local Dates
+    private LocalDate data_nascimento;
     // Enums
     @Enumerated(EnumType.STRING)
     private CursoEnum curso;
     // Booleanos
     private boolean ativo;
+    // Floats
+    private float salario;
 
 }
