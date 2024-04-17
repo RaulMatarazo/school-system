@@ -1,5 +1,5 @@
-CREATE TABLE aluno (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE alunos (
+    aluno_id INT AUTO_INCREMENT PRIMARY KEY,
     primeiro_nome VARCHAR(100) NOT NULL,
     sobrenome VARCHAR(100) NOT NULL,
     data_nascimento DATE NOT NULL,
