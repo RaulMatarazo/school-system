@@ -21,7 +21,7 @@ import java.time.LocalDate;
 @EqualsAndHashCode(of = "id")
 public class AlunoClass {
 
-    // Construtor para cadastrar um novo aluno de forma limpa
+    // Construtor para cadastrar um novo aluno
     public AlunoClass(AlunoDTO dados) {
         this.primeiro_nome = dados.primeiro_nome();
         this.sobrenome = dados.sobrenome();
