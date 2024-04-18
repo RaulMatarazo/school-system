@@ -1,15 +1,14 @@
 package com.api.escolaapi.aluno;
 
 import com.api.escolaapi.aluno.DTOs.AlunoDTO;
-import com.api.escolaapi.aluno.DTOs.AlunoDTOAtualizar;
-import com.api.escolaapi.aluno.DTOs.AlunoDTOListar;
+import com.api.escolaapi.aluno.DTOs.AlunoDTOPut;
+import com.api.escolaapi.aluno.DTOs.AlunoDTOGet;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
 
 // Controller para cadastrar um novo aluno
@@ -33,14 +32,14 @@ public class AlunoController {
 
     // Método HTTP GET
     @GetMapping
-    public List<AlunoDTOListar> listar() {
-        return repository.findAllByAtivoTrue().stream().map(AlunoDTOListar::new).toList();
+    public List<AlunoDTOGet> listar() {
+        return repository.findAllByAtivoTrue().stream().map(AlunoDTOGet::new).toList();
     }
 
     // Método HTTP PUT
     @PutMapping
     @Transactional
-    public void atualizar(@RequestBody @Valid AlunoDTOAtualizar dados) {
+    public void atualizar(@RequestBody @Valid AlunoDTOPut dados) {
         var aluno = repository.getReferenceById(dados.id());
         aluno.atualizarInformacoes(dados);
     }

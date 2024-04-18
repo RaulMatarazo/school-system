@@ -3,7 +3,7 @@ package com.api.escolaapi.aluno;
 import com.api.escolaapi.Enums.CursoEnum;
 import com.api.escolaapi.Enums.SerieEnum;
 import com.api.escolaapi.aluno.DTOs.AlunoDTO;
-import com.api.escolaapi.aluno.DTOs.AlunoDTOAtualizar;
+import com.api.escolaapi.aluno.DTOs.AlunoDTOPut;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.*;
@@ -50,7 +50,7 @@ public class AlunoClass {
     // Booleanos
     private boolean ativo;
     // Condições para atualizar informações
-    public void atualizarInformacoes(@Valid AlunoDTOAtualizar dados){
+    public void atualizarInformacoes(@Valid AlunoDTOPut dados){
         if (dados.serie() != null){
             this.serie = dados.serie();
         } if (dados.telefone() != null){

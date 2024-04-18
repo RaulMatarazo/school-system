@@ -1,6 +1,5 @@
 package com.api.escolaapi.professor;
 
-import com.api.escolaapi.aluno.DTOs.AlunoDTOAtualizar;
 import com.api.escolaapi.professor.DTOs.ProfessorDTO;
 import com.api.escolaapi.professor.DTOs.ProfessorDTOGet;
 import com.api.escolaapi.professor.DTOs.ProfessorDTOPut;
