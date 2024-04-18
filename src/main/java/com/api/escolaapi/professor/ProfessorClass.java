@@ -2,6 +2,7 @@ package com.api.escolaapi.professor;
 
 import com.api.escolaapi.Enums.CursoEnum;
 import com.api.escolaapi.professor.DTOs.ProfessorDTO;
+import com.api.escolaapi.professor.DTOs.ProfessorDTOPut;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -47,4 +48,23 @@ public class ProfessorClass {
     // Floats
     private float salario;
 
+    public void atualizarInformacoes(ProfessorDTOPut dados) {
+        if (dados.email() != null) {
+            this.email = dados.email();
+        }
+        if (dados.telefone() != null) {
+            this.telefone = dados.telefone();
+        }
+        if (dados.salario() != this.salario) {
+            this.salario = dados.salario();
+        }
+    }
+
+    public void desativar() {
+        this.ativo = false;
+    }
+
+    public void ativar() {
+        this.ativo = true;
+    }
 }
