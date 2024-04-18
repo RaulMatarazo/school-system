@@ -1,3 +1,4 @@
+-- Criando a tabela alunos
 CREATE TABLE alunos (
     aluno_id INT AUTO_INCREMENT PRIMARY KEY,
     primeiro_nome VARCHAR(100) NOT NULL,
