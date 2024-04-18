@@ -3,6 +3,7 @@ package com.api.escolaapi.professor;
 import com.api.escolaapi.professor.DTOs.ProfessorDTO;
 import com.api.escolaapi.professor.DTOs.ProfessorDTOGet;
 import com.api.escolaapi.professor.DTOs.ProfessorDTOPut;
+import com.api.escolaapi.repositorys.ProfessorRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

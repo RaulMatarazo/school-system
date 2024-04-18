@@ -3,6 +3,7 @@ package com.api.escolaapi.aluno;
 import com.api.escolaapi.aluno.DTOs.AlunoDTO;
 import com.api.escolaapi.aluno.DTOs.AlunoDTOPut;
 import com.api.escolaapi.aluno.DTOs.AlunoDTOGet;
+import com.api.escolaapi.repositorys.AlunoRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
