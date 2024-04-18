@@ -1,4 +1,3 @@
--- Criando a tabela professores
 CREATE TABLE professores(
     professor_id INT AUTO_INCREMENT PRIMARY KEY,
     primeiro_nome VARCHAR(100) NOT NULL,
