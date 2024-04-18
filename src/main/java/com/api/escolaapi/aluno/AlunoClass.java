@@ -18,7 +18,7 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = "id")
+@EqualsAndHashCode(of = "aluno_id")
 public class AlunoClass {
 
     // Construtor para cadastrar um novo aluno
@@ -36,7 +36,7 @@ public class AlunoClass {
     // ID
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int aluno_id;
     // Strings
     private String primeiro_nome, sobrenome, email, telefone;
     // LocalDate

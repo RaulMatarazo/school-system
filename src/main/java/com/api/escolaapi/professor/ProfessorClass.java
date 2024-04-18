@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+
 @Table(name = "Professores")
 @Entity(name = "professores")
 @Getter
@@ -27,6 +28,7 @@ public class ProfessorClass {
         this.curso = dados.curso();
         this.ativo = true;
     }
+
     // ID
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -8,7 +8,7 @@ public record AlunoDTOListar(int id, String primeiro_nome, String sobrenome, Cur
                              SerieEnum serie) {
 
     public AlunoDTOListar(AlunoClass alunoClass) {
-        this(alunoClass.getId(), alunoClass.getPrimeiro_nome(), alunoClass.getSobrenome(), alunoClass.getCurso(),
+        this(alunoClass.getAluno_id(), alunoClass.getPrimeiro_nome(), alunoClass.getSobrenome(), alunoClass.getCurso(),
                 alunoClass.getSerie());
     }
 }
