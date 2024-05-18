@@ -9,6 +9,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -26,9 +27,11 @@ public class AlunoController {
 
     // Método HTTP POST
     @PostMapping
+    @ResponseBody
     @Transactional
-    public void cadastrar(@RequestBody @Valid AlunoDTO dados) {
+    public RedirectView cadastrar(AlunoDTO dados) {
         repository.save(new AlunoClass(dados));
+        return new RedirectView("/cadastrar-aluno");
     }
 
     // Método HTTP GET
