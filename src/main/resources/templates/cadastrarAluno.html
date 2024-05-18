@@ -24,7 +24,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Visualizar alunos</a></li>
-                            <li><a class="dropdown-item" href="/cadastrar-novo-aluno">Cadastrar novo aluno</a></li>
+                            <li><a class="dropdown-item" href="/cadastrar-aluno">Cadastrar novo aluno</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -40,37 +40,67 @@
             </div>
         </div>
     </nav>
-    <form class="row g-3 needs-validation" style="padding: 50px;" novalidate>
+    <form method="post" action="/alunos"  class="row g-3 needs-validation" style="padding: 50px;" novalidate>
         <div class="col-md-4">
-            <label for="validationCustom01" class="form-label">Primeiro nome</label>
-            <input type="text" class="form-control" id="validationCustom01" name="primeiro_nome" required>
+            <label for="primeiro_nome" class="form-label">Primeiro nome</label>
+            <input type="text" class="form-control" id="primeiro_nome" name="primeiro_nome" required>
             <div class="valid-feedback">
                 Parece bom!
             </div>
         </div>
         <div class="col-md-4">
-            <label for="validationCustom02" class="form-label">Sobrenome</label>
-            <input type="text" class="form-control" id="validationCustom02" name="sobrenome" required>
+            <label for="sobrenome" class="form-label">Sobrenome</label>
+            <input type="text" class="form-control" id="sobrenome" name="sobrenome" required>
+            <div class="valid-feedback">
+                Parece bom!
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="data_nascimento" class="form-label">Data de nascimento</label>
+            <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
             <div class="valid-feedback">
                 Parece bom!
             </div>
         </div>
 
         <div class="col-md-6">
-            <label for="validationCustom03" class="form-label">E-mail</label>
-            <input type="text" class="form-control" id="validationCustom03" required>
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" name="email" required>
             <div class="invalid-feedback">
                 Por favor, insira o e-mail
             </div>
         </div>
+
+        <div class="col-md-4">
+            <label for="telefone" class="form-label">Telefone</label>
+            <input type="text" class="form-control" id="telefone" name="telefone" required>
+            <div class="invalid-feedback">
+                Por favor, insira o telefone
+            </div>
+        </div>
+
         <div class="col-md-3">
-            <label for="validationCustom04" class="form-label">Curso</label>
-            <select class="form-select" id="validationCustom04" required>
+            <label for="curso" class="form-label">Curso</label>
+            <select class="form-select" id="curso" name="curso" required>
                 <option selected disabled value="">Escolha...</option>
                 <option value="COMPUTACAO">Ciência da computação</option>
                 <option value="ENGENHARIA">Engenharia</option>
                 <option value="ECONOMIA">Economia</option>
                 <option value="FISICA">Física</option>
+            </select>
+            <div class="invalid-feedback">
+                Por favor, selecione um curso
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label for="serie" class="form-label">Série</label>
+            <select class="form-select" id="serie" name="serie" required>
+                <option selected disabled value="">Escolha...</option>
+                <option value="PRIMEIRA">Primeira</option>
+                <option value="SEGUNDA">Segunda</option>
+                <option value="TERCEIRA">Terceira</option>
+                <option value="QUARTA">Quarta</option>
             </select>
             <div class="invalid-feedback">
                 Por favor, selecione um curso
