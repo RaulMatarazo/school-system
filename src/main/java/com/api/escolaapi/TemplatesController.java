@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class WelcomeController {
+public class TemplatesController {
     @GetMapping("/")
     public String showWelcomeTemplate(){
-        return "welcome";
+        return "home";
     }
 
     @GetMapping("/cadastrar-aluno")

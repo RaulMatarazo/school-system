@@ -7,7 +7,9 @@ import com.api.escolaapi.repositorys.AlunoRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +18,7 @@ import java.util.List;
 // Essas anotações veem da dependência Spring Web
 
 // Controller
-@RestController
+@Controller
 // Endereço web padrão
 @RequestMapping("/alunos")
 public class AlunoController {
