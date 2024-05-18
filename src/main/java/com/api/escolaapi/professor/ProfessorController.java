@@ -9,6 +9,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -19,9 +20,11 @@ public class ProfessorController {
     private ProfessorRepository repository;
 
     @PostMapping
+    @ResponseBody
     @Transactional
-    public void cadastrar(@RequestBody @Valid ProfessorDTO dados) {
+    public RedirectView cadastrar(ProfessorDTO dados) {
         repository.save(new ProfessorClass(dados));
+        return new RedirectView("/cadastrar-professor");
     }
 
     @GetMapping

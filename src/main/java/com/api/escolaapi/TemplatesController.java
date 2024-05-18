@@ -14,4 +14,9 @@ public class TemplatesController {
     public String showCreateNewStudentTemplate(){
         return "cadastrarAluno";
     }
+
+    @GetMapping("/cadastrar-professor")
+    public String showCreateNewTeacherTemplate(){
+        return "cadastrarProfessor";
+    }
 }
