@@ -9,6 +9,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -37,10 +38,8 @@ public class AlunoController {
 
     // Método HTTP GET
     @GetMapping
-    public String listar() {
-        List<AlunoDTOGet> lista = repository.findAllByAtivoTrue().stream().map(AlunoDTOGet::new).toList();
-
-        return "listarAlunos";
+    public List<AlunoDTOGet> listar() {
+        return repository.findAllByAtivoTrue().stream().map(AlunoDTOGet::new).toList();
     }
 
     // Método HTTP PUT

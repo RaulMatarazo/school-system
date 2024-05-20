@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
@@ -53,16 +53,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
+        <tr th:each="aluno : ${alunos}">
             <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td th:text="${alunos.aluno_id}"></td>
+            <td th:text="${alunos.primeiro_nome}"></td>
+            <td th:text="${alunos.sobrenome}"></td>
+            <td th:text="${alunos.curso}"></td>
+            <td th:text="${alunos.serie}"></td>
         </tr>
         </tbody>
     </table>
