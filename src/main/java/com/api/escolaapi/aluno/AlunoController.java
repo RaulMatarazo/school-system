@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -17,7 +18,7 @@ import java.util.List;
 // Essas anotações veem da dependência Spring Web
 
 // Controller
-@RestController
+@Controller
 // Endereço web padrão
 @RequestMapping("/alunos")
 public class AlunoController {
@@ -36,8 +37,10 @@ public class AlunoController {
 
     // Método HTTP GET
     @GetMapping
-    public List<AlunoDTOGet> listar() {
-        return repository.findAllByAtivoTrue().stream().map(AlunoDTOGet::new).toList();
+    public String listar() {
+        List<AlunoDTOGet> lista = repository.findAllByAtivoTrue().stream().map(AlunoDTOGet::new).toList();
+
+        return "listarAlunos";
     }
 
     // Método HTTP PUT

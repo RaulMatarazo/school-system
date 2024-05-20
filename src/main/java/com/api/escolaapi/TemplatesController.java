@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class TemplatesController {
+
+
+
     @GetMapping("/")
     public String showWelcomeTemplate(){
         return "home";
@@ -18,5 +21,10 @@ public class TemplatesController {
     @GetMapping("/cadastrar-professor")
     public String showCreateNewTeacherTemplate(){
         return "cadastrarProfessor";
+    }
+
+    @GetMapping("/listar-alunos")
+    public String showListAllStudentsTemplate(){
+        return "listarAlunos";
     }
 }
