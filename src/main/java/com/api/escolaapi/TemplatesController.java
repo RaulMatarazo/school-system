@@ -3,6 +3,8 @@ package com.api.escolaapi;
 import com.api.escolaapi.aluno.AlunoClass;
 import com.api.escolaapi.aluno.AlunoController;
 import com.api.escolaapi.aluno.DTOs.AlunoDTOGet;
+import com.api.escolaapi.professor.DTOs.ProfessorDTOGet;
+import com.api.escolaapi.professor.ProfessorController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,9 @@ public class TemplatesController {
 
     @Autowired
     private AlunoController alunoController;
+
+    @Autowired
+    private ProfessorController professorController;
 
     @GetMapping("/")
     public String showWelcomeTemplate(){
@@ -36,5 +41,12 @@ public class TemplatesController {
         List<AlunoDTOGet> alunos = alunoController.listar();
         model.addAttribute("alunos", alunos);
         return "listarAlunos";
+    }
+
+    @GetMapping("/listar-professores")
+    public String showListAllTeachersTemplate(Model model){
+        List<ProfessorDTOGet> professores = professorController.visualizar();
+        model.addAttribute("professores", professores);
+        return "listarProfessores";
     }
 }

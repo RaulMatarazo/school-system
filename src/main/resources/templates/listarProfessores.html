@@ -41,7 +41,7 @@
     </div>
 </nav>
 <main style="padding: 50px">
-    <h1>Alunos</h1>
+    <h1>Professores</h1>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -49,16 +49,16 @@
             <th>Primeiro nome</th>
             <th>Sobrenome</th>
             <th>Curso</th>
-            <th>Série</th>
+            <th>Salário (R$)</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="aluno : ${alunos}">
-            <td th:text="${aluno.id}"></td>
-            <td th:text="${aluno.primeiro_nome}"></td>
-            <td th:text="${aluno.sobrenome}"></td>
-            <td th:text="${aluno.curso}"></td>
-            <td th:text="${aluno.serie}"></td>
+        <tr th:each="professor : ${professores}">
+            <td th:text="${professor.id}"></td>
+            <td th:text="${professor.primeiro_nome}"></td>
+            <td th:text="${professor.sobrenome}"></td>
+            <td th:text="${professor.curso}"></td>
+            <td th:text="${professor.salario}"></td>
         </tr>
         </tbody>
     </table>
