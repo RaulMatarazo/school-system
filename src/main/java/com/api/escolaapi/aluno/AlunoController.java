@@ -1,15 +1,13 @@
 package com.api.escolaapi.aluno;
 
 import com.api.escolaapi.aluno.DTOs.AlunoDTO;
-import com.api.escolaapi.aluno.DTOs.AlunoDTOPut;
 import com.api.escolaapi.aluno.DTOs.AlunoDTOGet;
+import com.api.escolaapi.aluno.DTOs.AlunoDTOPut;
 import com.api.escolaapi.repositorys.AlunoRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -19,7 +17,7 @@ import java.util.List;
 // Essas anotações veem da dependência Spring Web
 
 // Controller
-@Controller
+@RestController
 // Endereço web padrão
 @RequestMapping("/alunos")
 public class AlunoController {
@@ -39,7 +37,7 @@ public class AlunoController {
     // Método HTTP GET
     @GetMapping
     public List<AlunoDTOGet> listar() {
-        return repository.findAllByAtivoTrue().stream().map(AlunoDTOGet::new).toList();
+        return repository.findAll().stream().map(AlunoDTOGet::new).toList();
     }
 
     // Método HTTP PUT
