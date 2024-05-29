@@ -50,6 +50,7 @@
             <th>Sobrenome</th>
             <th>Curso</th>
             <th>Série</th>
+            <th>Ações</th>
         </tr>
         </thead>
         <tbody>
@@ -59,6 +60,10 @@
             <td th:text="${aluno.sobrenome}"></td>
             <td th:text="${aluno.curso}"></td>
             <td th:text="${aluno.serie}"></td>
+            <td>
+                <a href="/editar-aluno">Editar</a>
+                <a href="#">Excluir</a>
+            </td>
         </tr>
         </tbody>
     </table>

@@ -49,4 +49,9 @@ public class TemplatesController {
         model.addAttribute("professores", professores);
         return "listarProfessores";
     }
+
+    @GetMapping("/editar-aluno")
+    public String showEditStudentTemplate(){
+        return "editarAluno";
+    }
 }
