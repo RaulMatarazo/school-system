@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -17,16 +18,15 @@ import java.util.List;
 // Essas anotações veem da dependência Spring Web
 
 // Controller
-@RestController
+@Controller
 // Endereço web padrão
-@RequestMapping("/alunos")
 public class AlunoController {
     // Autowired
     @Autowired
     private AlunoRepository repository;
 
     // Método HTTP POST
-    @PostMapping
+    @PostMapping("/alunos")
     @ResponseBody
     @Transactional
     public RedirectView cadastrar(AlunoDTO dados) {
@@ -35,13 +35,13 @@ public class AlunoController {
     }
 
     // Método HTTP GET
-    @GetMapping
+    @GetMapping("/alunos")
     public List<AlunoDTOGet> listar() {
         return repository.findAll().stream().map(AlunoDTOGet::new).toList();
     }
 
     // Método HTTP PUT
-    @PutMapping
+    @PutMapping("/editar-aluno")
     @Transactional
     public void atualizar(@RequestBody @Valid AlunoDTOPut dados) {
         var aluno = repository.getReferenceById(dados.id());
