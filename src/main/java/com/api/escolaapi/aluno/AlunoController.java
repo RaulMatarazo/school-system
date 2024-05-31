@@ -41,10 +41,10 @@ public class AlunoController {
     }
 
     // Método HTTP PUT
-    @PutMapping("/editar-aluno")
+    @PutMapping("/editar-aluno/{id}")
     @Transactional
-    public void atualizar(@RequestBody @Valid AlunoDTOPut dados) {
-        var aluno = repository.getReferenceById(dados.id());
+    public void atualizar(@PathVariable int id, @ModelAttribute AlunoDTOPut dados) {
+        var aluno = repository.getReferenceById(id);
         aluno.atualizarInformacoes(dados);
     }
 
