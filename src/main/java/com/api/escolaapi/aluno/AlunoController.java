@@ -9,6 +9,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -43,9 +44,13 @@ public class AlunoController {
     // Método HTTP PUT
     @PutMapping("/editar-aluno/{id}")
     @Transactional
-    public void atualizar(@PathVariable int id, @ModelAttribute AlunoDTOPut dados) {
+    public String atualizar(@PathVariable int id, @ModelAttribute AlunoDTOPut dados, BindingResult result) {
+        if (result.hasErrors()) {
+            return "editarAluno";
+        }
         var aluno = repository.getReferenceById(id);
         aluno.atualizarInformacoes(dados);
+        return "redirect:/listar-alunos";
     }
 
     // Método HTTP DELETE

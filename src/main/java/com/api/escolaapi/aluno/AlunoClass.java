@@ -50,15 +50,18 @@ public class AlunoClass {
     // Booleanos
     private boolean ativo;
     // Condições para atualizar informações
-    public void atualizarInformacoes(@Valid AlunoDTOPut dados){
-        if (dados.serie() != null){
+    public void atualizarInformacoes(@Valid AlunoDTOPut dados) {
+        if (dados.serie() != null) {
             this.serie = dados.serie();
-        } if (dados.telefone() != null){
+        }
+        if (dados.telefone() != null && !dados.telefone().isEmpty()) {
             this.telefone = dados.telefone();
-        } if (dados.email() != null){
+        }
+        if (dados.email() != null && !dados.email().isEmpty()) {
             this.email = dados.email();
         }
     }
+
     // Desativar aluno
     public void desativar() {
         this.ativo = false;
