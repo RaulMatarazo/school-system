@@ -15,18 +15,12 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
-// Controller para cadastrar um novo aluno
-// Essas anotações veem da dependência Spring Web
-
-// Controller
 @Controller
-// Endereço web padrão
 public class AlunoController {
-    // Autowired
+
     @Autowired
     private AlunoRepository repository;
 
-    // Método HTTP POST
     @PostMapping("/alunos")
     @ResponseBody
     @Transactional
@@ -35,13 +29,11 @@ public class AlunoController {
         return new RedirectView("/cadastrar-aluno");
     }
 
-    // Método HTTP GET
     @GetMapping("/alunos")
     public List<AlunoDTOGet> listar() {
         return repository.findAll().stream().map(AlunoDTOGet::new).toList();
     }
 
-    // Método HTTP PUT
     @PutMapping("/editar-aluno/{id}")
     @Transactional
     public String atualizar(@PathVariable int id, @ModelAttribute AlunoDTOPut dados, BindingResult result) {
@@ -53,16 +45,12 @@ public class AlunoController {
         return "redirect:/listar-alunos";
     }
 
-    // Método HTTP DELETE
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity<Void> deletar(@PathVariable int id){
+    public void deletar(@PathVariable int id){
         repository.deleteById(id);
-
-        return ResponseEntity.noContent().build();
     }
 
-    // Método HTTP DELETE
     @DeleteMapping("inativar/{id}")
     @Transactional
     public void inativar(@PathVariable int id){
@@ -70,7 +58,6 @@ public class AlunoController {
         aluno.desativar();
     }
 
-    // Método HTTP PUT
     @PutMapping("ativar/{id}")
     @Transactional
     public void ativar(@PathVariable int id){
