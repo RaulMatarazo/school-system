@@ -9,6 +9,8 @@ This is an API that uses Java and Spring Boot Framework. You can use this projec
 - Java
 - Spring Boot Framework
 - MySQL
+- HTML
+- Bootstrap
 
 
 ## Authors
@@ -18,7 +20,6 @@ This is an API that uses Java and Spring Boot Framework. You can use this projec
 
 ## You can integrate
 
-- The Front-end
 - More Entities, like: Employees, Parents..
 - More security
 
