@@ -157,9 +157,9 @@
                 })
                 .then(response => {
                   if (response.ok) {
-                    appendAlert('Formulário enviado com sucesso!', 'success')
+                    appendAlert('Aluno criado com sucesso!', 'success')
                   } else {
-                    appendAlert('Houve um problema no envio do formulário.', 'danger')
+                    appendAlert('Houve um problema ao criar um novo aluno. Verifique se o e-mail ou senha já está em uso por outro aluno.', 'danger')
                   }
                 })
                 .catch(error => {

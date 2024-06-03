@@ -47,8 +47,9 @@ public class AlunoController {
 
     @DeleteMapping("/deletar-aluno/{id}")
     @Transactional
-    public void deletar(@PathVariable int id){
+    public String deletar(@PathVariable int id){
         repository.deleteById(id);
+        return "redirect:/listar-alunos";
     }
 
     @DeleteMapping("/inativar-aluno/{id}")
