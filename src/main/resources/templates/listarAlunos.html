@@ -62,7 +62,7 @@
             <td th:text="${aluno.serie}"></td>
             <td>
                 <a th:href="@{/editar-aluno/{id}(id=${aluno.id})}" class="btn btn-primary">Editar</a>
-                <a th:href="@{/{id}(id=${aluno.id})}" class="btn btn-danger">Excluir</a>
+                <a th:href="@{/deletar-aluno/{id}(id=${aluno.id})}" class="btn btn-danger">Excluir</a>
             </td>
         </tr>
         </tbody>

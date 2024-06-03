@@ -45,20 +45,20 @@ public class AlunoController {
         return "redirect:/listar-alunos";
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletar-aluno/{id}")
     @Transactional
     public void deletar(@PathVariable int id){
         repository.deleteById(id);
     }
 
-    @DeleteMapping("inativar/{id}")
+    @DeleteMapping("/inativar-aluno/{id}")
     @Transactional
     public void inativar(@PathVariable int id){
         var aluno = repository.getReferenceById(id);
         aluno.desativar();
     }
 
-    @PutMapping("ativar/{id}")
+    @PutMapping("/ativar-aluno/{id}")
     @Transactional
     public void ativar(@PathVariable int id){
         var aluno = repository.getReferenceById(id);
