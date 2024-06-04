@@ -50,6 +50,7 @@
             <th>Sobrenome</th>
             <th>Curso</th>
             <th>Salário (R$)</th>
+            <th>Ações</th>
         </tr>
         </thead>
         <tbody>
@@ -59,6 +60,14 @@
             <td th:text="${professor.sobrenome}"></td>
             <td th:text="${professor.curso}"></td>
             <td th:text="${professor.salario}"></td>
+            <td>
+                <a th:href="@{/editar-professor/{id}(id=${professor.id})}" class="btn btn-primary">Editar</a>
+                <form id="delete-form" th:action="@{/deletar-professor/{id}(id=${professor.id})}" method="post" style="display: none;">
+                    <input type="hidden" name="_method" value="delete"/>
+                </form>
+
+                <a href="#" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">Excluir</a>
+            </td>
         </tr>
         </tbody>
     </table>

@@ -11,6 +11,6 @@ import java.time.LocalDate;
 
 public record ProfessorDTO(@NotBlank String primeiro_nome, @NotBlank String sobrenome,
                            @NotNull int sexo, @Email String email, @NotBlank String telefone,
-                           @Past LocalDate data_nascimento, @NotNull float salario,
+                           @Past LocalDate data_nascimento, @NotNull Float salario,
                            @Enumerated CursoEnum curso) {
 }

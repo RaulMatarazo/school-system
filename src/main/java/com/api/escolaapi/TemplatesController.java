@@ -56,4 +56,10 @@ public class TemplatesController {
         model.addAttribute("alunoId", id);
         return "editarAluno";
     }
+
+    @GetMapping("/editar-professor/{id}")
+    public String showEditTeacherTemplate(@PathVariable int id, Model model){
+        model.addAttribute("professorId", id);
+        return "editarProfessor";
+    }
 }

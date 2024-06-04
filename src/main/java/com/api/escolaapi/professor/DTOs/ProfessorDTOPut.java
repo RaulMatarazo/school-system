@@ -8,5 +8,5 @@ import jakarta.validation.constraints.Past;
 import java.time.LocalDate;
 
 public record ProfessorDTOPut(@NotNull int id, String email, String telefone,
-                              float salario) {
+                              Float salario) {
 }

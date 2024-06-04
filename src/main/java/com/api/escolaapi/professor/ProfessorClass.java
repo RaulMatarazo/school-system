@@ -46,16 +46,16 @@ public class ProfessorClass {
     // Booleanos
     private boolean ativo;
     // Floats
-    private float salario;
+    private Float salario;
 
     public void atualizarInformacoes(ProfessorDTOPut dados) {
-        if (dados.email() != null) {
+        if (dados.email() != null && !dados.email().isEmpty()) {
             this.email = dados.email();
         }
-        if (dados.telefone() != null) {
+        if (dados.telefone() != null && !dados.telefone().isEmpty()) {
             this.telefone = dados.telefone();
         }
-        if (dados.salario() != this.salario) {
+        if (dados.salario() != null) {
             this.salario = dados.salario();
         }
     }
