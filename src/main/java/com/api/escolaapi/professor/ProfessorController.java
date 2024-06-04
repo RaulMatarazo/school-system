@@ -46,12 +46,12 @@ public class ProfessorController {
         return "redirect:/listar-professores";
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletar-professor/{id}")
     @Transactional
-    public ResponseEntity<Void> deletar(@PathVariable int id){
+    public String deletar(@PathVariable int id){
         repository.deleteById(id);
 
-        return ResponseEntity.noContent().build();
+        return "redirect:/listar-professores";
     }
 
     @DeleteMapping("inativar/{id}")

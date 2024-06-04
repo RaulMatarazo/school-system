@@ -2,6 +2,7 @@ package com.api.escolaapi;
 
 import com.api.escolaapi.aluno.AlunoClass;
 import com.api.escolaapi.aluno.AlunoController;
+import com.api.escolaapi.aluno.DTOs.AlunoDTO;
 import com.api.escolaapi.aluno.DTOs.AlunoDTOGet;
 import com.api.escolaapi.professor.DTOs.ProfessorDTOGet;
 import com.api.escolaapi.professor.ProfessorController;
@@ -61,5 +62,16 @@ public class TemplatesController {
     public String showEditTeacherTemplate(@PathVariable int id, Model model){
         model.addAttribute("professorId", id);
         return "editarProfessor";
+    }
+
+    @GetMapping("/admin-alunos")
+    public String showAdimAlunosTemplate(){
+        return "adminAlunos";
+    }
+
+    public String showAdimAlunosTemplate(Model model){
+        List<AlunoClass> alunos = alunoController.listarTodasAsInformacoes();
+        model.addAttribute("alunos", alunos);
+        return "adminAlunos";
     }
 }

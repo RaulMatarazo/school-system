@@ -32,6 +32,11 @@ public class AlunoController {
         return repository.findAll().stream().map(AlunoDTOGet::new).toList();
     }
 
+    @GetMapping("/admin-listar-alunos")
+    public List<AlunoClass> listarTodasAsInformacoes() {
+        return repository.findAll();
+    }
+
     @PutMapping("/editar-aluno/{id}")
     @Transactional
     public String atualizar(@PathVariable int id, @ModelAttribute AlunoDTOPut dados, BindingResult result) {
