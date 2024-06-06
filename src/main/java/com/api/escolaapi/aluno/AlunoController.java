@@ -32,6 +32,10 @@ public class AlunoController {
         return repository.findAllByAtivoTrue().stream().map(AlunoDTOGet::new).toList();
     }
 
+    @GetMapping("/alunos-desativados")
+    public List<AlunoDTOGet> listarDesativados() {
+        return repository.findAllByAtivoFalse().stream().map(AlunoDTOGet::new).toList();
+    }
 
     @PutMapping("/editar-aluno/{id}")
     @Transactional
@@ -51,6 +55,13 @@ public class AlunoController {
         return "redirect:/listar-alunos";
     }
 
+    @DeleteMapping("/deletar-aluno-desativado/{id}")
+    @Transactional
+    public String deletarDesativado(@PathVariable int id){
+        repository.deleteById(id);
+        return "redirect:/listar-alunos-desativados";
+    }
+
     @DeleteMapping("/inativar-aluno/{id}")
     @Transactional
     public String inativar(@PathVariable int id){
@@ -61,9 +72,10 @@ public class AlunoController {
 
     @PutMapping("/ativar-aluno/{id}")
     @Transactional
-    public void ativar(@PathVariable int id){
+    public String ativar(@PathVariable int id){
         var aluno = repository.getReferenceById(id);
         aluno.ativar();
+        return "redirect:/listar-alunos-desativados";
     }
 
 }

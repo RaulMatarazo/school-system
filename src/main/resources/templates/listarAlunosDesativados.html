@@ -62,16 +62,15 @@
             <td th:text="${aluno.curso}"></td>
             <td th:text="${aluno.serie}"></td>
             <td>
-                <a th:href="@{/editar-aluno/{id}(id=${aluno.id})}" class="btn btn-primary">Editar</a>
-                <form id="delete-form" th:action="@{/deletar-aluno/{id}(id=${aluno.id})}" method="post" style="display: none;">
+                <form id="delete-form" th:action="@{/deletar-aluno-desativado/{id}(id=${aluno.id})}" method="post" style="display: none;">
                     <input type="hidden" name="_method" value="delete"/>
                 </form>
-                <form id="inativar-form" th:action="@{/inativar-aluno/{id}(id=${aluno.id})}" method="post" style="display: none;">
-                    <input type="hidden" name="_method" value="delete"/>
+                <form id="ativar-form" th:action="@{/ativar-aluno/{id}(id=${aluno.id})}" method="post" style="display: none;">
+                    <input type="hidden" name="_method" value="put"/>
                 </form>
 
                 <a href="#" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">Excluir</a>
-                <a href="#" class="btn btn-warning" onclick="event.preventDefault(); document.getElementById('inativar-form').submit();">Inativar</a>
+                <a href="#" class="btn btn-success" onclick="event.preventDefault(); document.getElementById('ativar-form').submit();">Ativar</a>
             </td>
         </tr>
         </tbody>

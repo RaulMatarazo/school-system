@@ -33,16 +33,31 @@ public class TemplatesController {
         return "cadastrarAluno";
     }
 
-    @GetMapping("/cadastrar-professor")
-    public String showCreateNewTeacherTemplate(){
-        return "cadastrarProfessor";
-    }
-
     @GetMapping("/listar-alunos")
     public String showListAllStudentsTemplate(Model model){
         List<AlunoDTOGet> alunos = alunoController.listar();
         model.addAttribute("alunos", alunos);
         return "listarAlunos";
+    }
+
+    @GetMapping("/editar-aluno/{id}")
+    public String showEditStudentTemplate(@PathVariable int id, Model model){
+        model.addAttribute("alunoId", id);
+        return "editarAluno";
+    }
+
+    @GetMapping("/listar-alunos-desativados")
+    public String showListAllDesativatedStudentsTemplate(Model model){
+        List<AlunoDTOGet> alunos = alunoController.listarDesativados();
+        model.addAttribute("alunos", alunos);
+        return "listarAlunosDesativados";
+    }
+
+    // -------------------------------------------------------------------------------
+
+    @GetMapping("/cadastrar-professor")
+    public String showCreateNewTeacherTemplate(){
+        return "cadastrarProfessor";
     }
 
     @GetMapping("/listar-professores")
@@ -52,11 +67,6 @@ public class TemplatesController {
         return "listarProfessores";
     }
 
-    @GetMapping("/editar-aluno/{id}")
-    public String showEditStudentTemplate(@PathVariable int id, Model model){
-        model.addAttribute("alunoId", id);
-        return "editarAluno";
-    }
 
     @GetMapping("/editar-professor/{id}")
     public String showEditTeacherTemplate(@PathVariable int id, Model model){
