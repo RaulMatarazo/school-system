@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface ProfessorRepository extends JpaRepository<ProfessorClass, Integer> {
     List<ProfessorClass> findAllByAtivoTrue();
+    List<ProfessorClass> findAllByAtivoFalse();
 }

@@ -43,7 +43,7 @@
     </div>
 </nav>
 <main style="padding: 50px">
-    <h1>Alunos</h1>
+    <h1>Professores</h1>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -51,22 +51,22 @@
             <th>Primeiro nome</th>
             <th>Sobrenome</th>
             <th>Curso</th>
-            <th>Série</th>
+            <th>Salário (R$)</th>
             <th>Ações</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="aluno : ${alunos}">
-            <td th:text="${aluno.id}"></td>
-            <td th:text="${aluno.primeiro_nome}"></td>
-            <td th:text="${aluno.sobrenome}"></td>
-            <td th:text="${aluno.curso}"></td>
-            <td th:text="${aluno.serie}"></td>
+        <tr th:each="professor : ${professores}">
+            <td th:text="${professor.id}"></td>
+            <td th:text="${professor.primeiro_nome}"></td>
+            <td th:text="${professor.sobrenome}"></td>
+            <td th:text="${professor.curso}"></td>
+            <td th:text="${professor.salario}"></td>
             <td>
-                <form id="delete-form" th:action="@{/deletar-aluno-desativado/{id}(id=${aluno.id})}" method="post" style="display: none;">
+                <form id="delete-form" th:action="@{/deletar-professor/{id}(id=${professor.id})}" method="post" style="display: none;">
                     <input type="hidden" name="_method" value="delete"/>
                 </form>
-                <form id="ativar-form" th:action="@{/ativar-aluno/{id}(id=${aluno.id})}" method="post" style="display: none;">
+                <form id="ativar-form" th:action="@{/ativar-professor/{id}(id=${professor.id})}" method="post" style="display: none;">
                     <input type="hidden" name="_method" value="put"/>
                 </form>
 

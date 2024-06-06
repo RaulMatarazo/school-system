@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.swing.*;
 import java.util.List;
 
 @Controller
@@ -35,6 +36,11 @@ public class ProfessorController {
         return repository.findAllByAtivoTrue().stream().map(ProfessorDTOGet::new).toList();
     }
 
+    @GetMapping("/professores-desativados")
+    public List<ProfessorDTOGet> visualizarDesativados() {
+        return repository.findAllByAtivoFalse().stream().map(ProfessorDTOGet::new).toList();
+    }
+
     @PutMapping("/editar-professor/{id}")
     @Transactional
     public String atualizar(@PathVariable int id, @ModelAttribute ProfessorDTOPut dados, BindingResult result) {
@@ -54,19 +60,21 @@ public class ProfessorController {
         return "redirect:/listar-professores";
     }
 
-    @DeleteMapping("inativar/{id}")
+    @DeleteMapping("/inativar-professor/{id}")
     @Transactional
-    public void inativar(@PathVariable int id){
+    public String inativar(@PathVariable int id){
         var professor = repository.getReferenceById(id);
         professor.desativar();
+        return "redirect:/listar-professores";
     }
 
     // Método HTTP PUT
-    @PutMapping("ativar/{id}")
+    @PutMapping("/ativar-professor/{id}")
     @Transactional
-    public void ativar(@PathVariable int id){
+    public String ativar(@PathVariable int id){
         var professor = repository.getReferenceById(id);
         professor.ativar();
+        return "redirect:/listar-professores-desativados";
     }
 
 }

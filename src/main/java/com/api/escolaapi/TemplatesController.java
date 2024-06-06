@@ -73,4 +73,13 @@ public class TemplatesController {
         model.addAttribute("professorId", id);
         return "editarProfessor";
     }
+
+    @GetMapping("/listar-professores-desativados")
+    public String showListAllDesativatedTeachersTemplate(Model model){
+        List<ProfessorDTOGet> professores = professorController.visualizarDesativados();
+        model.addAttribute("professores", professores);
+        return "listarProfessoresDesativados";
+    }
+
+
 }
