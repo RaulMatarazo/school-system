@@ -29,7 +29,7 @@ public class AlunoController {
 
     @GetMapping("/alunos")
     public List<AlunoDTOGet> listar() {
-        return repository.findAll().stream().map(AlunoDTOGet::new).toList();
+        return repository.findAllByAtivoTrue().stream().map(AlunoDTOGet::new).toList();
     }
 
 
@@ -53,9 +53,10 @@ public class AlunoController {
 
     @DeleteMapping("/inativar-aluno/{id}")
     @Transactional
-    public void inativar(@PathVariable int id){
+    public String inativar(@PathVariable int id){
         var aluno = repository.getReferenceById(id);
         aluno.desativar();
+        return "redirect:/listar-alunos";
     }
 
     @PutMapping("/ativar-aluno/{id}")

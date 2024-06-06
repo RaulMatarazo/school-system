@@ -10,8 +10,6 @@ import lombok.*;
 
 import java.time.LocalDate;
 
-// Anotações da classe Aluno
-// Essas anotações veem da dependência JPA
 @Table(name = "Alunos")
 @Entity(name = "alunos")
 @Getter
@@ -21,7 +19,6 @@ import java.time.LocalDate;
 @EqualsAndHashCode(of = "aluno_id")
 public class AlunoClass {
 
-    // Construtor para cadastrar um novo aluno
     public AlunoClass(AlunoDTO dados) {
         this.primeiro_nome = dados.primeiro_nome();
         this.sobrenome = dados.sobrenome();
@@ -33,23 +30,23 @@ public class AlunoClass {
         this.ativo = true;
     }
 
-    // ID
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int aluno_id;
-    // Strings
+
     private String primeiro_nome, sobrenome, email, telefone;
-    // LocalDate
+
     private LocalDate data_nascimento;
-    // Enum
+
     @Enumerated(EnumType.STRING)
     private SerieEnum serie;
-    // Enum
+
     @Enumerated(EnumType.STRING)
     private CursoEnum curso;
-    // Booleanos
+
     private boolean ativo;
-    // Condições para atualizar informações
+
     public void atualizarInformacoes(@Valid AlunoDTOPut dados) {
         if (dados.serie() != null) {
             this.serie = dados.serie();
@@ -62,11 +59,9 @@ public class AlunoClass {
         }
     }
 
-    // Desativar aluno
     public void desativar() {
         this.ativo = false;
     }
-    // Ativar aluno
     public void ativar(){
         this.ativo = true;
     }
