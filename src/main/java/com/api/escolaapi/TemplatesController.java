@@ -63,15 +63,4 @@ public class TemplatesController {
         model.addAttribute("professorId", id);
         return "editarProfessor";
     }
-
-    @GetMapping("/admin-alunos")
-    public String showAdimAlunosTemplate(){
-        return "adminAlunos";
-    }
-
-    public String showAdimAlunosTemplate(Model model){
-        List<AlunoClass> alunos = alunoController.listarTodasAsInformacoes();
-        model.addAttribute("alunos", alunos);
-        return "adminAlunos";
-    }
 }
