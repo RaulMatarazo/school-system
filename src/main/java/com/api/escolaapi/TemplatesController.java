@@ -1,8 +1,6 @@
 package com.api.escolaapi;
 
-import com.api.escolaapi.aluno.AlunoClass;
 import com.api.escolaapi.aluno.AlunoController;
-import com.api.escolaapi.aluno.DTOs.AlunoDTO;
 import com.api.escolaapi.aluno.DTOs.AlunoDTOGet;
 import com.api.escolaapi.professor.DTOs.ProfessorDTOGet;
 import com.api.escolaapi.professor.ProfessorController;
