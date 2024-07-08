@@ -7,7 +7,7 @@ This is an API that uses Java and Spring Boot Framework. You can use this projec
 ## Technologies
 
 - Java
-- Spring Boot Framework
+- Spring Boot Framework (A lot of Thymeleaf)
 - MySQL
 - HTML
 - Bootstrap
