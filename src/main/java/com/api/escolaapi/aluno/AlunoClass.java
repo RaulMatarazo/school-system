@@ -27,6 +27,7 @@ public class AlunoClass {
         this.telefone = dados.telefone();
         this.curso = dados.curso();
         this.serie = dados.serie();
+        this.sexo = dados.sexo();
         this.ativo = true;
     }
 
@@ -36,6 +37,8 @@ public class AlunoClass {
     private int aluno_id;
 
     private String primeiro_nome, sobrenome, email, telefone;
+
+    private boolean sexo;
 
     private LocalDate data_nascimento;
 
