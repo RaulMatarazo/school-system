@@ -21,6 +21,11 @@ public class TemplatesController {
     @Autowired
     private ProfessorController professorController;
 
+    @GetMapping("/login")
+    public String showLoginTemplate(){
+        return "login";
+    }
+
     @GetMapping("/")
     public String showWelcomeTemplate(){
         return "home";
