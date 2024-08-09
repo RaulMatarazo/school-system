@@ -37,7 +37,7 @@ public class ProfessorClass {
     // Strings
     private String primeiro_nome, sobrenome, email, telefone;
     // Ints
-    private int sexo;
+    private boolean sexo;
     // Local Dates
     private LocalDate data_nascimento;
     // Enums
