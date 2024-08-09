@@ -23,65 +23,65 @@ public class TemplatesController {
 
     @GetMapping("/login")
     public String showLoginTemplate(){
-        return "login";
+        return "/templates outros/login";
     }
 
     @GetMapping("/")
     public String showWelcomeTemplate(){
-        return "home";
+        return "/templates outros/home";
     }
 
     @GetMapping("/cadastrar-aluno")
     public String showCreateNewStudentTemplate(){
-        return "cadastrarAluno";
+        return "/templates alunos/cadastrarAluno";
     }
 
     @GetMapping("/listar-alunos")
     public String showListAllStudentsTemplate(Model model){
         List<AlunoDTOGet> alunos = alunoController.listar();
         model.addAttribute("alunos", alunos);
-        return "listarAlunos";
+        return "/templates alunos/listarAlunos";
     }
 
     @GetMapping("/editar-aluno/{id}")
     public String showEditStudentTemplate(@PathVariable int id, Model model){
         model.addAttribute("alunoId", id);
-        return "editarAluno";
+        return "/templates alunos/editarAluno";
     }
 
     @GetMapping("/listar-alunos-desativados")
     public String showListAllDesativatedStudentsTemplate(Model model){
         List<AlunoDTOGet> alunos = alunoController.listarDesativados();
         model.addAttribute("alunos", alunos);
-        return "listarAlunosDesativados";
+        return "/templates alunos/listarAlunosDesativados";
     }
 
     // -------------------------------------------------------------------------------
 
     @GetMapping("/cadastrar-professor")
     public String showCreateNewTeacherTemplate(){
-        return "cadastrarProfessor";
+        return "/templates professores/cadastrarProfessor";
     }
 
     @GetMapping("/listar-professores")
     public String showListAllTeachersTemplate(Model model){
         List<ProfessorDTOGet> professores = professorController.visualizar();
         model.addAttribute("professores", professores);
-        return "listarProfessores";
+        return "/templates professores/listarProfessores";
     }
 
 
     @GetMapping("/editar-professor/{id}")
     public String showEditTeacherTemplate(@PathVariable int id, Model model){
         model.addAttribute("professorId", id);
-        return "editarProfessor";
+        return "/templates professores/editarProfessor";
     }
 
     @GetMapping("/listar-professores-desativados")
     public String showListAllDesativatedTeachersTemplate(Model model){
         List<ProfessorDTOGet> professores = professorController.visualizarDesativados();
         model.addAttribute("professores", professores);
-        return "listarProfessoresDesativados";
+        return "/templates professores/listarProfessoresDesativados";
     }
 
 
