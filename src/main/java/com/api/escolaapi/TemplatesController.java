@@ -70,7 +70,6 @@ public class TemplatesController {
         return "/templates professores/listarProfessores";
     }
 
-
     @GetMapping("/editar-professor/{id}")
     public String showEditTeacherTemplate(@PathVariable int id, Model model){
         model.addAttribute("professorId", id);
@@ -84,5 +83,10 @@ public class TemplatesController {
         return "/templates professores/listarProfessoresDesativados";
     }
 
+    // -------------------------------------------------------------------------------
 
+    @GetMapping("/cadastrar-funcionario")
+    public String showCreateNewEmployeeTemplate(){
+        return "/templates funcionarios/cadastrarFuncionario";
+    }
 }

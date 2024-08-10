@@ -52,8 +52,8 @@
         </div>
     </div>
 </nav>
-<form action="/professores" method="post"  class="row g-3 needs-validation" style="padding: 50px;" novalidate>
-    <h1>Cadastrar professor</h1>
+<form action="/funcionarios" method="post"  class="row g-3 needs-validation" style="padding: 50px;" novalidate>
+    <h1>Cadastrar funcionário</h1>
     <div class="col-md-4">
         <label for="primeiro_nome" class="form-label">Primeiro nome</label>
         <input type="text" class="form-control" id="primeiro_nome" name="primeiro_nome" required>
@@ -89,6 +89,14 @@
         </div>
     </div>
 
+    <div class="col-md-6">
+        <label for="email" class="form-label">Senha</label>
+        <input type="password" class="form-control" id="senha" name="senha" required>
+        <div class="invalid-feedback">
+            Por favor, insira a senha
+        </div>
+    </div>
+
     <div class="col-md-4">
         <label for="telefone" class="form-label">Telefone</label>
         <input type="text" class="form-control" id="telefone" name="telefone" required>
@@ -117,16 +125,14 @@
     </div>
 
     <div class="col-md-3">
-        <label for="curso" class="form-label">Curso</label>
-        <select class="form-select" id="curso" name="curso" required>
+        <label for="tipo" class="form-label">Tipo de funcionário</label>
+        <select class="form-select" id="tipo" name="tipo" required>
             <option selected disabled value="">Escolha...</option>
-            <option value="COMPUTACAO">Ciência da computação</option>
-            <option value="ENGENHARIA">Engenharia</option>
-            <option value="ECONOMIA">Economia</option>
-            <option value="FISICA">Física</option>
+            <option value="ADMIN">Admin</option>
+            <option value="NORMAL">Normal</option>
         </select>
         <div class="invalid-feedback">
-            Por favor, selecione um curso
+            Por favor, selecione o tipo do funcionário
         </div>
     </div>
 
@@ -136,6 +142,6 @@
     </div>
 </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script th:src="@{/js/error-professor.js}"></script>
+    <script th:src="@{/js/error-funcionario.js}"></script>
 </body>
 </html>

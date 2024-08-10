@@ -48,4 +48,29 @@ public class FuncionarioController {
         funcionario.atualizarInformacoes(dados);
         return "redirect:/listar-funcionarios";
     }
+
+    @DeleteMapping("/deletar-funcionario/{id}")
+    @Transactional
+    public String deletar(@PathVariable int id){
+        repository.deleteById(id);
+
+        return "redirect:/listar-funcionarios";
+    }
+
+    @DeleteMapping("/inativar-funcionario/{id}")
+    @Transactional
+    public String inativar(@PathVariable int id){
+        var funcionario = repository.getReferenceById(id);
+        funcionario.desativar();
+        return "redirect:/listar-funcionarios";
+    }
+
+    // Método HTTP PUT
+    @PutMapping("/ativar-funcionario/{id}")
+    @Transactional
+    public String ativar(@PathVariable int id){
+        var funcionario = repository.getReferenceById(id);
+        funcionario.ativar();
+        return "redirect:/listar-funcionarios-desativados";
+    }
 }
