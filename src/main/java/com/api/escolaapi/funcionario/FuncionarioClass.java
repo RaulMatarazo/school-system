@@ -52,7 +52,7 @@ public class FuncionarioClass {
     private Float salario;
 
     public void atualizarInformacoes(FuncionarioDTOPut dados) {
-        if (dados.tipo() != null && !dados.tipo().isEmpty()){
+        if (dados.tipo() != null){
             this.tipo = dados.tipo();
         }
         if (dados.email() != null && !dados.email().isEmpty()) {
