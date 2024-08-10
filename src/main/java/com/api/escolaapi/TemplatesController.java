@@ -22,35 +22,35 @@ public class TemplatesController {
     private ProfessorController professorController;
 
     @GetMapping("/login")
-    public String showLoginTemplate(){
+    public String login(){
         return "/templates outros/login";
     }
 
     @GetMapping("/")
-    public String showWelcomeTemplate(){
+    public String home(){
         return "/templates outros/home";
     }
 
     @GetMapping("/cadastrar-aluno")
-    public String showCreateNewStudentTemplate(){
+    public String cadastrarAluno(){
         return "/templates alunos/cadastrarAluno";
     }
 
     @GetMapping("/listar-alunos")
-    public String showListAllStudentsTemplate(Model model){
+    public String listarAlunosAtivados(Model model){
         List<AlunoDTOGet> alunos = alunoController.listar();
         model.addAttribute("alunos", alunos);
         return "/templates alunos/listarAlunos";
     }
 
     @GetMapping("/editar-aluno/{id}")
-    public String showEditStudentTemplate(@PathVariable int id, Model model){
+    public String editarAluno(@PathVariable int id, Model model){
         model.addAttribute("alunoId", id);
         return "/templates alunos/editarAluno";
     }
 
     @GetMapping("/listar-alunos-desativados")
-    public String showListAllDesativatedStudentsTemplate(Model model){
+    public String listarAlunosDesativados(Model model){
         List<AlunoDTOGet> alunos = alunoController.listarDesativados();
         model.addAttribute("alunos", alunos);
         return "/templates alunos/listarAlunosDesativados";
@@ -59,25 +59,25 @@ public class TemplatesController {
     // -------------------------------------------------------------------------------
 
     @GetMapping("/cadastrar-professor")
-    public String showCreateNewTeacherTemplate(){
+    public String cadastrarProfessor(){
         return "/templates professores/cadastrarProfessor";
     }
 
     @GetMapping("/listar-professores")
-    public String showListAllTeachersTemplate(Model model){
+    public String listarProfessoresAtivados(Model model){
         List<ProfessorDTOGet> professores = professorController.visualizar();
         model.addAttribute("professores", professores);
         return "/templates professores/listarProfessores";
     }
 
     @GetMapping("/editar-professor/{id}")
-    public String showEditTeacherTemplate(@PathVariable int id, Model model){
+    public String editarProfessor(@PathVariable int id, Model model){
         model.addAttribute("professorId", id);
         return "/templates professores/editarProfessor";
     }
 
     @GetMapping("/listar-professores-desativados")
-    public String showListAllDesativatedTeachersTemplate(Model model){
+    public String listarProfessoresDesativados(Model model){
         List<ProfessorDTOGet> professores = professorController.visualizarDesativados();
         model.addAttribute("professores", professores);
         return "/templates professores/listarProfessoresDesativados";
@@ -86,7 +86,12 @@ public class TemplatesController {
     // -------------------------------------------------------------------------------
 
     @GetMapping("/cadastrar-funcionario")
-    public String showCreateNewEmployeeTemplate(){
+    public String cadastrarFuncionario(){
         return "/templates funcionarios/cadastrarFuncionario";
+    }
+
+    @GetMapping("/listar-funcionarios")
+    public String listarFuncionariosAtivados(){
+        return "/templates funcionarios/listarFuncionarios";
     }
 }
