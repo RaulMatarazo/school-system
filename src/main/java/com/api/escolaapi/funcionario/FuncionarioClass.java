@@ -3,7 +3,9 @@ package com.api.escolaapi.funcionario;
 import com.api.escolaapi.Enums.CursoEnum;
 import com.api.escolaapi.Enums.TipoEnum;
 import com.api.escolaapi.funcionario.DTOs.FuncionarioDTO;
+import com.api.escolaapi.funcionario.DTOs.FuncionarioDTOPut;
 import com.api.escolaapi.professor.DTOs.ProfessorDTO;
+import com.api.escolaapi.professor.DTOs.ProfessorDTOPut;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -48,4 +50,27 @@ public class FuncionarioClass {
     private boolean ativo;
     // Floats
     private Float salario;
+
+    public void atualizarInformacoes(FuncionarioDTOPut dados) {
+        if (dados.tipo() != null && !dados.tipo().isEmpty()){
+            this.tipo = dados.tipo();
+        }
+        if (dados.email() != null && !dados.email().isEmpty()) {
+            this.email = dados.email();
+        }
+        if (dados.telefone() != null && !dados.telefone().isEmpty()) {
+            this.telefone = dados.telefone();
+        }
+        if (dados.salario() != null) {
+            this.salario = dados.salario();
+        }
+    }
+
+    public void desativar() {
+        this.ativo = false;
+    }
+
+    public void ativar() {
+        this.ativo = true;
+    }
 }
