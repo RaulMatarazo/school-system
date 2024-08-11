@@ -60,7 +60,10 @@
             <th>ID</th>
             <th>Primeiro nome</th>
             <th>Sobrenome</th>
-            <th>Curso</th>
+            <th>Data de nascimento</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Tipo</th>
             <th>Salário (R$)</th>
             <th>Ações</th>
         </tr>
@@ -70,6 +73,9 @@
             <td th:text="${funcionario.id}"></td>
             <td th:text="${funcionario.primeiro_nome}"></td>
             <td th:text="${funcionario.sobrenome}"></td>
+            <td th:text="${funcionario.data_nascimento}"></td>
+            <td th:text="${funcionario.email}"></td>
+            <td th:text="${funcionario.telefone}"></td>
             <td th:text="${funcionario.tipo}"></td>
             <td th:text="${funcionario.salario}"></td>
             <td>
