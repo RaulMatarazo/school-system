@@ -7,10 +7,12 @@ This is an API that uses Java and Spring Boot Framework. You can use this projec
 ## Technologies
 
 - Java
-- Spring Boot Framework (A lot of Thymeleaf)
+- Spring Boot Framework
 - MySQL
 - HTML
 - Bootstrap
+- JavaScript
+- CSS
 
 
 ## Authors
@@ -20,12 +22,9 @@ This is an API that uses Java and Spring Boot Framework. You can use this projec
 
 ## You can integrate
 
-- More Entities, like: Employees, Parents..
-- More security
-
+- Spring Security
 
 ## Dependences that I used
-
 
 ```java
 <dependencies>
