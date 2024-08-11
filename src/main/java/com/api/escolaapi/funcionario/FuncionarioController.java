@@ -42,7 +42,7 @@ public class FuncionarioController {
     @Transactional
     public String atualizar(@PathVariable int id, @ModelAttribute FuncionarioDTOPut dados, BindingResult result) {
         if (result.hasErrors()) {
-            return "editarFuncionarios";
+            return "editarFuncionario";
         }
         var funcionario = repository.getReferenceById(dados.id());
         funcionario.atualizarInformacoes(dados);

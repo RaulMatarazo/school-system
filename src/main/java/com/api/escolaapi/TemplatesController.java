@@ -2,6 +2,9 @@ package com.api.escolaapi;
 
 import com.api.escolaapi.aluno.AlunoController;
 import com.api.escolaapi.aluno.DTOs.AlunoDTOGet;
+import com.api.escolaapi.funcionario.DTOs.FuncionarioDTOGet;
+import com.api.escolaapi.funcionario.FuncionarioClass;
+import com.api.escolaapi.funcionario.FuncionarioController;
 import com.api.escolaapi.professor.DTOs.ProfessorDTOGet;
 import com.api.escolaapi.professor.ProfessorController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,9 @@ public class TemplatesController {
 
     @Autowired
     private ProfessorController professorController;
+
+    @Autowired
+    private FuncionarioController funcionarioController;
 
     @GetMapping("/login")
     public String login(){
@@ -91,7 +97,22 @@ public class TemplatesController {
     }
 
     @GetMapping("/listar-funcionarios")
-    public String listarFuncionariosAtivados(){
+    public String listarFuncionariosAtivados(Model model){
+        List<FuncionarioDTOGet> funcionarios = funcionarioController.visualizar();
+        model.addAttribute("funcionarios", funcionarios);
         return "/templates funcionarios/listarFuncionarios";
+    }
+
+    @GetMapping("/editar-funcionario/{id}")
+    public String editarFuncionario(@PathVariable int id, Model model){
+        model.addAttribute("funcionarioId", id);
+        return "/templates funcionarios/editarFuncionario";
+    }
+
+    @GetMapping("/listar-funcionarios-desativados")
+    public String listarFuncionariosDesativados(Model model){
+        List<FuncionarioDTOGet> funcionario = funcionarioController.visualizarDesativados();
+        model.addAttribute("funcionarios", funcionario);
+        return "/templates funcionarios/listarFuncionariosDesativados";
     }
 }

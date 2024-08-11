@@ -53,14 +53,14 @@
     </div>
 </nav>
 <main style="padding: 50px">
-    <h1>Funcionários</h1>
+    <h1>Professores</h1>
     <table class="table table-bordered">
         <thead>
         <tr>
             <th>ID</th>
             <th>Primeiro nome</th>
             <th>Sobrenome</th>
-            <th>Tipo</th>
+            <th>Curso</th>
             <th>Salário (R$)</th>
             <th>Ações</th>
         </tr>
@@ -73,16 +73,15 @@
             <td th:text="${funcionario.tipo}"></td>
             <td th:text="${funcionario.salario}"></td>
             <td>
-                <a th:href="@{/editar-funcionario/{id}(id=${funcionario.id})}" class="btn btn-primary">Editar</a>
                 <form id="delete-form" th:action="@{/deletar-funcionario/{id}(id=${funcionario.id})}" method="post" style="display: none;">
                     <input type="hidden" name="_method" value="delete"/>
                 </form>
-                <form id="desativar-form" th:action="@{/inativar-funcionario/{id}(id=${funcionario.id})}" method="post" style="display: none;">
-                    <input type="hidden" name="_method" value="delete"/>
+                <form id="ativar-form" th:action="@{/ativar-funcionario/{id}(id=${funcionario.id})}" method="post" style="display: none;">
+                    <input type="hidden" name="_method" value="put"/>
                 </form>
 
                 <a href="#" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">Excluir</a>
-                <a href="#" class="btn btn-warning" onclick="event.preventDefault(); document.getElementById('desativar-form').submit();">Inativar</a>
+                <a href="#" class="btn btn-success" onclick="event.preventDefault(); document.getElementById('ativar-form').submit();">Ativar</a>
             </td>
         </tr>
         </tbody>
