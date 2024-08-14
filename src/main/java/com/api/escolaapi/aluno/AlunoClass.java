@@ -36,7 +36,10 @@ public class AlunoClass {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int aluno_id;
 
-    private String primeiro_nome, sobrenome, email, telefone;
+    private String primeiro_nome, sobrenome;
+
+    @Column(unique = true)
+    private String email, telefone;
 
     private boolean sexo;
 

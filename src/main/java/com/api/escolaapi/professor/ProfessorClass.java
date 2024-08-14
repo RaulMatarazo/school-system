@@ -35,7 +35,9 @@ public class ProfessorClass {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int professor_id;
     // Strings
-    private String primeiro_nome, sobrenome, email, telefone;
+    private String primeiro_nome, sobrenome;
+    @Column(unique = true)
+    private String email, telefone;
     // Ints
     private boolean sexo;
     // Local Dates

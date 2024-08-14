@@ -6,6 +6,10 @@ import com.api.escolaapi.aluno.DTOs.AlunoDTOPut;
 import com.api.escolaapi.repositorys.AlunoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -21,10 +25,15 @@ public class AlunoController {
 
     @PostMapping("/alunos")
     @ResponseBody
-    @Transactional
-    public RedirectView cadastrar(AlunoDTO dados) {
-        repository.save(new AlunoClass(dados));
-        return new RedirectView("/cadastrar-aluno");
+    public ResponseEntity<String> cadastrar(AlunoDTO dados) {
+        try {
+            repository.save(new AlunoClass(dados));
+            System.out.println("Aluno cadastrado com sucesso!");
+            return ResponseEntity.status(HttpStatus.CREATED).body("Aluno cadastrado com sucesso!");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("E-mail ou telefone já em uso.");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("E-mail ou telefone já está em uso.");
+        }
     }
 
     @GetMapping("/alunos")
@@ -39,10 +48,7 @@ public class AlunoController {
 
     @PutMapping("/editar-aluno/{id}")
     @Transactional
-    public String atualizar(@PathVariable int id, @ModelAttribute AlunoDTOPut dados, BindingResult result) {
-        if (result.hasErrors()) {
-            return "editarAluno";
-        }
+    public String atualizar(@PathVariable int id, @ModelAttribute AlunoDTOPut dados) {
         var aluno = repository.getReferenceById(id);
         aluno.atualizarInformacoes(dados);
         return "redirect:/listar-alunos";

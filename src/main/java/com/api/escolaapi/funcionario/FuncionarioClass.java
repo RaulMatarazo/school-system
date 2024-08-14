@@ -38,7 +38,9 @@ public class FuncionarioClass {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int funcionario_id;
     // Strings
-    private String primeiro_nome, sobrenome, email, telefone, senha;
+    private String primeiro_nome, sobrenome, senha;
+    @Column(unique = true)
+    private String email, telefone;
     // Ints
     private boolean sexo;
     // Local Dates

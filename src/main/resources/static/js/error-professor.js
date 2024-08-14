@@ -1,8 +1,3 @@
-console.log("Script carregado");
-console.log(document.querySelectorAll('.needs-validation')); // Deve mostrar os formulários
-console.log(document.getElementById('liveAlertPlaceholder')); // Deve mostrar o placeholder
-
-
 (() => {
   'use strict'
 

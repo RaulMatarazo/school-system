@@ -8,6 +8,9 @@ import com.api.escolaapi.professor.DTOs.ProfessorDTOPut;
 import com.api.escolaapi.repositorys.FuncionarioRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -22,10 +25,16 @@ public class FuncionarioController {
 
     @PostMapping("/funcionarios")
     @ResponseBody
-    @Transactional
-    public RedirectView cadastrar(FuncionarioDTO dados) {
-        repository.save(new FuncionarioClass(dados));
-        return new RedirectView("/cadastrar-funcionario");
+    public ResponseEntity<String> cadastrar(FuncionarioDTO dados) {
+        try {
+            repository.save(new FuncionarioClass(dados));
+            System.out.println("Funcionário criado com sucesso");
+            return ResponseEntity.status(HttpStatus.CREATED).body("Funcionário criado com sucesso");
+        } catch (DataIntegrityViolationException e){
+            System.out.println("E-mail ou telefone já estão em uso");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("E-mail ou telefone já estão em uso");
+        }
+
     }
 
     @GetMapping("/funcionarios")
