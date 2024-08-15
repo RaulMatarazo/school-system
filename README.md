@@ -23,7 +23,7 @@ public class EscolaApiApplication {
     }
 }
 ```
-
+Clique na URL mostrada, você abrirá a tela de login do projeto.
 ## Visualizando o projeto
 
 Faça testes e force erros, se quiser atualizar alguma coisa me mande por aqui, obrigado!
