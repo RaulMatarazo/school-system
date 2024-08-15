@@ -13,7 +13,7 @@ Após isso, como o projeto utiliza banco de dados local, você deve criar um ban
 
 Agora é só clicar em iniciar aplicação, no arquivo EscolaAPIApplication, aqui:
 ```java
-	@SpringBootApplication
+@SpringBootApplication
 public class EscolaApiApplication {
     public static void main(String[] args) {
         SpringApplication.run(EscolaApiApplication.class, args);
@@ -22,7 +22,6 @@ public class EscolaApiApplication {
         System.out.println("Feito por Raul U. Matarazo");
     }
 }
-
 ```
 
 ## Visualizando o projeto
