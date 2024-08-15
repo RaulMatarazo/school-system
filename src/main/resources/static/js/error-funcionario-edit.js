@@ -31,9 +31,9 @@
     })
     .then(response => {
       if (response.ok) {
-              appendAlert('Aluno editado com sucesso!', 'success') // Alert de sucesso
+              appendAlert('Funcionário editado com sucesso!', 'success') // Alert de sucesso
             } else {
-              appendAlert('Houve um problema ao editar o aluno. Verifique se o e-mail ou telefone já está em uso.', 'danger')
+              appendAlert('Houve um problema ao editar o funcionário. Verifique se o e-mail ou telefone já está em uso.', 'danger')
             }
     })
     .catch(error => {
