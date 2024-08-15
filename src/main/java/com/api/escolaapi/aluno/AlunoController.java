@@ -5,6 +5,7 @@ import com.api.escolaapi.aluno.DTOs.AlunoDTOGet;
 import com.api.escolaapi.aluno.DTOs.AlunoDTOPut;
 import com.api.escolaapi.repositorys.AlunoRepository;
 import jakarta.transaction.Transactional;
+import org.hibernate.annotations.processing.SQL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.xml.crypto.Data;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 @Controller
@@ -48,10 +51,16 @@ public class AlunoController {
 
     @PutMapping("/editar-aluno/{id}")
     @Transactional
-    public String atualizar(@PathVariable int id, @ModelAttribute AlunoDTOPut dados) {
-        var aluno = repository.getReferenceById(id);
-        aluno.atualizarInformacoes(dados);
-        return "redirect:/listar-alunos";
+    public ResponseEntity<String> atualizar(@PathVariable int id, @ModelAttribute AlunoDTOPut dados) {
+        try{
+            var aluno = repository.getReferenceById(id);
+            aluno.atualizarInformacoes(dados);
+            System.out.println("Aluno editado com sucesso!");
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body("Aluno editado com sucesso!");
+        } catch (Exception e){
+            System.out.println("Erro ao editar o aluno");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Erro ao editar o aluno");
+        }
     }
 
     @DeleteMapping("/deletar-aluno/{id}")
