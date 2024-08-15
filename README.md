@@ -1,74 +1,33 @@
 
-# School API
+# Como executar o projeto?
 
-This is an API that uses Java and Spring Boot Framework. You can use this project to understand how to use annotations, you'll see that isn't to hard.
+## Abrindo o projeto
 
+Primeiramente você deve fazer um fork do projeto e abri-lo em sua IDE - eu te recomendo visualizá-lo no IntelliJ.
 
-## Technologies
+## Criando o banco de dados local
 
-- Java
-- Spring Boot Framework
-- MySQL
-- HTML
-- Bootstrap
-- JavaScript
-- CSS
+Após isso, como o projeto utiliza banco de dados local, você deve criar um banco de dados no MYSQL WorkBench chamado escola
 
+## Executando o projeto
 
-## Authors
-
-- [@raulmatarazo](https://www.linkedin.com/in/raulmatarazo/)
-
-
-## You can integrate
-
-- Spring Security
-
-## Dependences that I used
-
+Agora é só clicar em iniciar aplicação, no arquivo EscolaAPIApplication, aqui:
 ```java
-<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-mysql</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-validation</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-</dependencies>
+	@SpringBootApplication
+public class EscolaApiApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(EscolaApiApplication.class, args);
+        System.out.println("A aplicação está rodando...");
+        System.out.println("Clique aqui para acessar o projeto: http://localhost:8080/login"); // clique aqui depois no console, quando tudo rodar tranquilo sem nenhum erro.
+        System.out.println("Feito por Raul U. Matarazo");
+    }
+}
+
 ```
 
+## Visualizando o projeto
+
+Faça testes e force erros, se quiser atualizar alguma coisa me mande por aqui, obrigado!
+
+## Autores
+- [@raulmatarazo](https://www.linkedin.com/in/raulmatarazo/)
