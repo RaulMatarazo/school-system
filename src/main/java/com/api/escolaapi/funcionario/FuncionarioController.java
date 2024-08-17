@@ -1,5 +1,6 @@
 package com.api.escolaapi.funcionario;
 
+import com.api.escolaapi.aluno.AlunoClass;
 import com.api.escolaapi.funcionario.DTOs.FuncionarioDTO;
 import com.api.escolaapi.funcionario.DTOs.FuncionarioDTOGet;
 import com.api.escolaapi.funcionario.DTOs.FuncionarioDTOPut;
@@ -25,16 +26,18 @@ public class FuncionarioController {
 
     @PostMapping("/funcionarios")
     @ResponseBody
+    @Transactional
     public ResponseEntity<String> cadastrar(FuncionarioDTO dados) {
-        try {
+        var email = repository.findByEmail(dados.email());
+        var telefone = repository.findByTelefone(dados.telefone());
+        if (email.isEmpty() && telefone.isEmpty()){
             repository.save(new FuncionarioClass(dados));
-            System.out.println("Funcionário criado com sucesso");
-            return ResponseEntity.status(HttpStatus.CREATED).body("Funcionário criado com sucesso");
-        } catch (DataIntegrityViolationException e){
-            System.out.println("E-mail ou telefone já estão em uso");
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("E-mail ou telefone já estão em uso");
+            System.out.println("Funcionário criado com sucesso!");
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body("Funcionário criado com sucesso!");
+        } else {
+            System.out.println("Erro ao criar o funcionário");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Erro ao criar o funcionário");
         }
-
     }
 
     @GetMapping("/funcionarios")

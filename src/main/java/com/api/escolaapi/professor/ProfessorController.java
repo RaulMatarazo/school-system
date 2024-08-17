@@ -1,5 +1,6 @@
 package com.api.escolaapi.professor;
 
+import com.api.escolaapi.aluno.AlunoClass;
 import com.api.escolaapi.aluno.DTOs.AlunoDTOPut;
 import com.api.escolaapi.professor.DTOs.ProfessorDTO;
 import com.api.escolaapi.professor.DTOs.ProfessorDTOGet;
@@ -27,14 +28,17 @@ public class ProfessorController {
 
     @PostMapping("/professores")
     @ResponseBody
+    @Transactional
     public ResponseEntity<String> cadastrar(ProfessorDTO dados) {
-        try{
+        var email = repository.findByEmail(dados.email());
+        var telefone = repository.findByTelefone(dados.telefone());
+        if (email.isEmpty() && telefone.isEmpty()){
             repository.save(new ProfessorClass(dados));
-            System.out.println("Professor criado com sucesso");
-            return ResponseEntity.status(HttpStatus.CREATED).body("Professor criado com sucesso");
-        } catch (DataIntegrityViolationException e){
-            System.out.println("E-mail ou telefone já estão em uso.");
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("E-mail ou telefone já estão em uso.");
+            System.out.println("Professor criado com sucesso!");
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body("Professor criado com sucesso!");
+        } else {
+            System.out.println("Erro ao criar o professor");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Erro ao criar o Professor");
         }
     }
 

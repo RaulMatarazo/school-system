@@ -28,14 +28,17 @@ public class AlunoController {
 
     @PostMapping("/alunos")
     @ResponseBody
+    @Transactional
     public ResponseEntity<String> cadastrar(AlunoDTO dados) {
-        try {
+        var email = repository.findByEmail(dados.email());
+        var telefone = repository.findByTelefone(dados.telefone());
+        if (email.isEmpty() && telefone.isEmpty()){
             repository.save(new AlunoClass(dados));
-            System.out.println("Aluno cadastrado com sucesso!");
-            return ResponseEntity.status(HttpStatus.CREATED).body("Aluno cadastrado com sucesso!");
-        } catch (DataIntegrityViolationException e) {
-            System.out.println("E-mail ou telefone já em uso.");
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("E-mail ou telefone já está em uso.");
+            System.out.println("Aluno criado com sucesso!");
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body("Aluno criado com sucesso!");
+        } else {
+            System.out.println("Erro ao criar o aluno");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Erro ao criar o aluno");
         }
     }
 
