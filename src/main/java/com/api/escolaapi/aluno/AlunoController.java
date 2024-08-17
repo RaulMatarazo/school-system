@@ -52,15 +52,18 @@ public class AlunoController {
     @PutMapping("/editar-aluno/{id}")
     @Transactional
     public ResponseEntity<String> atualizar(@PathVariable int id, @ModelAttribute AlunoDTOPut dados) {
-        try{
+        var email = repository.findByEmail(dados.email());
+        var telefone = repository.findByTelefone(dados.telefone());
+        if (email.isEmpty() && telefone.isEmpty()){
             var aluno = repository.getReferenceById(id);
             aluno.atualizarInformacoes(dados);
             System.out.println("Aluno editado com sucesso!");
             return ResponseEntity.status(HttpStatus.ACCEPTED).body("Aluno editado com sucesso!");
-        } catch (Exception e){
+        } else {
             System.out.println("Erro ao editar o aluno");
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Erro ao editar o aluno");
         }
+
     }
 
     @DeleteMapping("/deletar-aluno/{id}")

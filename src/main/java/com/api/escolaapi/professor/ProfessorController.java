@@ -50,13 +50,18 @@ public class ProfessorController {
 
     @PutMapping("/editar-professor/{id}")
     @Transactional
-    public String atualizar(@PathVariable int id, @ModelAttribute ProfessorDTOPut dados, BindingResult result) {
-        if (result.hasErrors()) {
-            return "editarProfessor";
+    public ResponseEntity<String> atualizar(@PathVariable int id, @ModelAttribute ProfessorDTOPut dados) {
+        var email = repository.findByEmail(dados.email());
+        var telefone = repository.findByTelefone(dados.telefone());
+        if (email.isEmpty() && telefone.isEmpty()){
+            var professor = repository.getReferenceById(id);
+            professor.atualizarInformacoes(dados);
+            System.out.println("Professor editado com sucesso!");
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body("Professor editado com sucesso!");
+        } else {
+            System.out.println("Erro ao editar o professor");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Erro ao editar o professor");
         }
-        var professor = repository.getReferenceById(dados.id());
-        professor.atualizarInformacoes(dados);
-        return "redirect:/listar-professores";
     }
 
     @DeleteMapping("/deletar-professor/{id}")

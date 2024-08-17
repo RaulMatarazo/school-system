@@ -9,10 +9,10 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.api</groupId>
-	<artifactId>escola-api</artifactId>
+	<artifactId>full-school-system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>escola-api</name>
-	<description>Demo project for Spring Boot</description>
+	<name>full-school-system</name>
+	<description>Full School System</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

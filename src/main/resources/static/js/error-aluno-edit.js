@@ -32,9 +32,9 @@
     .then(response => {
       if (response.ok) {
               appendAlert('Aluno editado com sucesso!', 'success') // Alert de sucesso
-            } else {
-              appendAlert('Houve um problema ao editar o aluno. Verifique se o e-mail ou telefone já está em uso.', 'danger')
-            }
+      } else {
+          appendAlert('Houve um problema ao editar o aluno. Verifique se o e-mail ou telefone já está em uso.', 'danger')
+      }
     })
     .catch(error => {
       console.error('Error:', error)

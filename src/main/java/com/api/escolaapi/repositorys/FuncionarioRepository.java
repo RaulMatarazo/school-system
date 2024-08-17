@@ -8,4 +8,7 @@ import java.util.List;
 public interface FuncionarioRepository extends JpaRepository<FuncionarioClass, Integer> {
     List<FuncionarioClass> findAllByAtivoTrue();
     List<FuncionarioClass> findAllByAtivoFalse();
+    List<FuncionarioClass> findByEmail(String email);
+    List<FuncionarioClass> findByTelefone(String telefones);
+
 }

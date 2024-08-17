@@ -49,13 +49,18 @@ public class FuncionarioController {
 
     @PutMapping("/editar-funcionario/{id}")
     @Transactional
-    public String atualizar(@PathVariable int id, @ModelAttribute FuncionarioDTOPut dados, BindingResult result) {
-        if (result.hasErrors()) {
-            return "editarFuncionario";
+    public ResponseEntity<String> atualizar(@PathVariable int id, @ModelAttribute FuncionarioDTOPut dados) {
+        var email = repository.findByEmail(dados.email());
+        var telefone = repository.findByTelefone(dados.telefone());
+        if (email.isEmpty() && telefone.isEmpty()){
+            var funcionario = repository.getReferenceById(id);
+            funcionario.atualizarInformacoes(dados);
+            System.out.println("Funcionário editado com sucesso!");
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body("Funcionário editado com sucesso!");
+        } else {
+            System.out.println("Erro ao editar o funcionário");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Erro ao editar o Funcionário");
         }
-        var funcionario = repository.getReferenceById(dados.id());
-        funcionario.atualizarInformacoes(dados);
-        return "redirect:/listar-funcionarios";
     }
 
     @DeleteMapping("/deletar-funcionario/{id}")

@@ -9,4 +9,6 @@ import java.util.List;
 public interface ProfessorRepository extends JpaRepository<ProfessorClass, Integer> {
     List<ProfessorClass> findAllByAtivoTrue();
     List<ProfessorClass> findAllByAtivoFalse();
+    List<ProfessorClass> findByEmail(String email);
+    List<ProfessorClass> findByTelefone(String telefone);
 }

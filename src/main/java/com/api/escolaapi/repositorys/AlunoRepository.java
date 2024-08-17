@@ -9,4 +9,6 @@ import java.util.List;
 public interface AlunoRepository extends JpaRepository<AlunoClass, Integer> {
     List<AlunoClass> findAllByAtivoTrue();
     List<AlunoClass> findAllByAtivoFalse();
+    List<AlunoClass> findByEmail(String email);
+    List<AlunoClass> findByTelefone(String telefone);
 }
