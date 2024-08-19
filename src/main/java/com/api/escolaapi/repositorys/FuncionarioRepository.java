@@ -10,5 +10,5 @@ public interface FuncionarioRepository extends JpaRepository<FuncionarioClass, I
     List<FuncionarioClass> findAllByAtivoTrue();
     List<FuncionarioClass> findAllByAtivoFalse();
     List<FuncionarioClass> findByEmail(String email);
-    List<FuncionarioClass> findByTelefone(String telefones);
+    List<FuncionarioClass> findByTelefone(String telefone);
 }
