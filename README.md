@@ -26,6 +26,7 @@ public class EscolaApiApplication {
 Clique na URL mostrada, você abrirá a tela de login do projeto.
 ## Visualizando o projeto
 
+Se quiser fazer login crie um funcionário e utilize o primeiro nome de username e a senha de password.
 Faça testes e force erros, se quiser atualizar alguma coisa me mande por aqui, obrigado!
 
 ## Autores
