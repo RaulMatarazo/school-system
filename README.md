@@ -7,27 +7,21 @@ Primeiramente você deve fazer um fork do projeto e abri-lo em sua IDE - eu te r
 
 ## Criando o banco de dados local
 
-Após isso, como o projeto utiliza banco de dados local, você deve criar um banco de dados no MYSQL WorkBench chamado escola
+Após isso, como o projeto utiliza banco de dados local, você deve criar um banco de dados no MYSQL WorkBench chamado 'escola'
+
+## Crie um usuário para acessar o sistema
+
+Após executar o projeto note que foram criadas três tabelas no seu MySQL WorkBench. Crie um novo funcionário utilizando o comando abaixo:
+```sql
+INSERT INTO funcionarios (primeiro_nome, sobrenome, senha, email, telefone, data_nascimento, salario, tipo, ativo)
+VALUES ('Raul', 'Matarazo', 'raul123', 'raul@gmail.com', '000000000', '2000-01-01', 1000, 'ADMIN', 1)
+```
 
 ## Executando o projeto
 
-Agora é só clicar em iniciar aplicação, no arquivo EscolaAPIApplication, aqui:
-```java
-@SpringBootApplication
-public class EscolaApiApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(EscolaApiApplication.class, args);
-        System.out.println("A aplicação está rodando...");
-        System.out.println("Clique aqui para acessar o projeto: http://localhost:8080/login"); // clique aqui depois no console, quando tudo rodar tranquilo sem nenhum erro.
-        System.out.println("Feito por Raul U. Matarazo");
-    }
-}
-```
+Agora é só clicar em iniciar aplicação, no arquivo EscolaAPIApplication. No console note a seguinte URL:
+http://localhost:8080/login
 Clique na URL mostrada, você abrirá a tela de login do projeto.
-## Visualizando o projeto
-
-Se quiser fazer login crie um funcionário e utilize o primeiro nome de username e a senha de password.
-Faça testes e force erros, se quiser atualizar alguma coisa me mande por aqui, obrigado!
 
 ## Autores
 - [@raulmatarazo](https://www.linkedin.com/in/raulmatarazo/)
