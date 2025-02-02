@@ -27,7 +27,6 @@ public class AlunoClass {
         this.telefone = dados.telefone();
         this.curso = dados.curso();
         this.serie = dados.serie();
-        this.sexo = dados.sexo();
         this.ativo = true;
     }
 
@@ -40,8 +39,6 @@ public class AlunoClass {
 
     @Column(unique = true)
     private String email, telefone;
-
-    private boolean sexo;
 
     private LocalDate data_nascimento;
 

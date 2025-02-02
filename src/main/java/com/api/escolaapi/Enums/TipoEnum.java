@@ -1,6 +1,6 @@
-package com.api.escolaapi.Enums;
+    package com.api.escolaapi.Enums;
 
-public enum TipoEnum {
-    ADMIN,
-    NORMAL
-}
+    public enum TipoEnum {
+        ADMIN,
+        NORMAL
+    }

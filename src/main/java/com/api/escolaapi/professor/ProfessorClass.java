@@ -21,7 +21,6 @@ public class ProfessorClass {
     public ProfessorClass(ProfessorDTO dados) {
         this.primeiro_nome = dados.primeiro_nome();
         this.sobrenome = dados.sobrenome();
-        this.sexo = dados.sexo();
         this.email = dados.email();
         this.telefone = dados.telefone();
         this.data_nascimento = dados.data_nascimento();
@@ -38,8 +37,6 @@ public class ProfessorClass {
     private String primeiro_nome, sobrenome;
     @Column(unique = true)
     private String email, telefone;
-    // Ints
-    private boolean sexo;
     // Local Dates
     private LocalDate data_nascimento;
     // Enums

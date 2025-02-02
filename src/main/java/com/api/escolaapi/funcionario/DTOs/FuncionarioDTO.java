@@ -10,7 +10,7 @@ import jakarta.validation.constraints.Past;
 
 import java.time.LocalDate;
 
-public record FuncionarioDTO(@NotBlank String primeiro_nome, @NotBlank String sobrenome, @NotNull boolean sexo,
+public record FuncionarioDTO(@NotBlank String primeiro_nome, @NotBlank String sobrenome,
                              @Past LocalDate data_nascimento, @Enumerated TipoEnum tipo, @Email String email,
                              @NotBlank String telefone, @NotBlank Float salario , @NotBlank String senha) {
 }

@@ -12,7 +12,7 @@ import jakarta.validation.constraints.Past;
 import java.time.LocalDate;
 
 // DTO para os dados dos alunos
-public record AlunoDTO(@NotBlank String primeiro_nome, @NotBlank String sobrenome, @NotNull boolean sexo,
+public record AlunoDTO(@NotBlank String primeiro_nome, @NotBlank String sobrenome,
                        @Past LocalDate data_nascimento, @Enumerated SerieEnum serie,
                        @Enumerated CursoEnum curso, @Email String email,
                        @NotBlank String telefone) {

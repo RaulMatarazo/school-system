@@ -10,7 +10,7 @@ import jakarta.validation.constraints.Past;
 import java.time.LocalDate;
 
 public record ProfessorDTO(@NotBlank String primeiro_nome, @NotBlank String sobrenome,
-                           @NotNull boolean sexo, @Email String email, @NotBlank String telefone,
+                           @Email String email, @NotBlank String telefone,
                            @Past LocalDate data_nascimento, @NotNull Float salario,
                            @Enumerated CursoEnum curso) {
 }

@@ -25,7 +25,6 @@ public class FuncionarioClass {
         this.sobrenome = dados.sobrenome();
         this.email = dados.email();
         this.senha = dados.senha();
-        this.sexo = dados.sexo();
         this.data_nascimento = dados.data_nascimento();
         this.tipo = dados.tipo();
         this.salario = dados.salario();
@@ -41,8 +40,6 @@ public class FuncionarioClass {
     private String primeiro_nome, sobrenome, senha;
     @Column(unique = true)
     private String email, telefone;
-    // Ints
-    private boolean sexo;
     // Local Dates
     private LocalDate data_nascimento;
     // Enums
